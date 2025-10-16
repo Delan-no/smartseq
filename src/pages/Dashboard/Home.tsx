@@ -75,15 +75,17 @@ export default function Home() {
               </p>
             </div>
 
-          {/* Bouton mobile pour ouvrir le modal */}
-          <button
-            onClick={openModal}
-            className="md:hidden fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white p-4 rounded-full shadow-2xl transition-all duration-200 transform hover:scale-110 active:scale-95"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-          </button>
+
+        
+        {/* Bouton mobile pour ouvrir le modal */}
+        <button
+          onClick={openModal}
+          className="md:hidden fixed bottom-6 right-6 z-[60] bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white p-4 rounded-full shadow-2xl transition-all duration-200 transform hover:scale-110 active:scale-95"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+        </button>
 
             {/* Layout principal */}
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -114,16 +116,18 @@ export default function Home() {
                   onSearch={handleSearch}
                   placeholder="Rechercher un nombre..."
                 />
+                
+                {/* Résultats de recherche - toujours en haut */}
+                <SearchResults
+                  searchValue={searchValue}
+                  results={searchResults}
+                />
 
+                {/* Affichage de la séquence - avec accordéon sur mobile */}
                 <OptimizedSequenceDisplay
                   sequence={currentSequence}
                   title={currentSequenceName}
                   searchHistory={JSON.parse(localStorage.getItem('searchHistory') || '[]')}
-                />
-                
-                <SearchResults
-                  searchValue={searchValue}
-                  results={searchResults}
                 />
               </div>
             </div>

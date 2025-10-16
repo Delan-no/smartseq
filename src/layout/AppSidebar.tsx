@@ -9,6 +9,7 @@ import {
   HorizontaLDots,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
+// import InstallButton from "../components/ui/InstallButton";
 
 type NavItem = {
   name: string;
@@ -234,12 +235,15 @@ const AppSidebar: React.FC = () => {
               
             </>
           ) : (
-            <img
-              src="/images/logo/logo-icon.svg"
-              alt="Logo"
-              width={32}
-              height={32}
-            />
+            <div className="text-2xl font-bold w-10 h-10">
+              SQ
+            </div>
+            // <img
+            //   src="/images/logo/logo-icon.svg"
+            //   alt="Logo"
+            //   width={32}
+            //   height={32}
+            // />
           )}
         </Link>
       </div>
@@ -264,6 +268,11 @@ const AppSidebar: React.FC = () => {
             </div>
           </div>
         </nav>
+        
+        {/* Bouton d'installation PWA */}
+        {/* <div className={`mt-auto mb-4 ${!isExpanded && !isHovered ? "lg:flex lg:justify-center" : ""}`}>
+          <InstallButton />
+        </div> */}
       </div>
     </aside>
   );
